@@ -48,62 +48,9 @@ class PaySimpleAPI:
             self._last_metadata = data["Meta"]
             return data["Response"]
 
-    def match_account(self, customer_id, account_id):
-        account_sets = self.list_customer_accounts(customer_id)
-        for _type, accounts in account_sets.items():
-            for account in accounts:
-                if str(account["Id"]) == str(account_id):
-                    account["_type"] = _type
-                    return account
-        # e.g. the user tried use an account they don't own
-        m = "An error occurred when trying to access this account."
-        m += " Please try again or contact the staff."
-        raise ValueError(m)
-
     def _get(self, *args, **kwargs):
         return self._request("get", *args, **kwargs)
-
-    def _post(self, *args, **kwargs):
-        return self._request("post", *args, **kwargs)
-
-    def _put(self, *args, **kwargs):
-        return self._request("put", *args, **kwargs)
-
-    def _delete(self, *args, **kwargs):
-        return self._request("delete", *args, **kwargs)
 
     def create_customer_token(self, _id):
         """ Make a customer token that can be used to make purchases via javascript """
         return self._get("/customer/{}/token".format(_id))
-
-    def new_customer(self, first_name, last_name, **kwargs):
-        kwargs["FirstName"] = first_name
-        kwargs["LastName"] = last_name
-        return self._post("/customer", **kwargs)
-
-    def list_customers(self):
-        return self._get("/customer")
-
-    def delete_customer(self, _id):
-        return self._delete("/customer/{}".format(_id))
-
-    def list_customer_accounts(self, _id):
-        return self._get("/customer/{}/accounts".format(_id))
-
-    def delete_credit_card(self, _id):
-        return self._delete("/account/creditcard/{}".format(_id))
-
-    def delete_ach(self, _id):
-        return self._delete("/account/ach/{}".format(_id))
-
-    def new_payment(self, **kwargs):
-        return self._post("/payment", **kwargs)
-
-    def get_payment(self, _id):
-        return self._get("/payment/{}".format(_id))
-
-    def list_payments(self):
-        return self._get("/payment")
-
-    def get_recurring_payment(self, _id):
-        return self._get("/recurringpayment/{}".format(_id))

@@ -2,6 +2,8 @@
 
 ## Setup
 
+The python code is not essential to this demo. If you can't get it working, all that is necessary is to serve the code in `/static/` with an end point `/api/token/` which returns the token for the current user (the python code fakes this by hard coding the user id).
+
 Install python3 then run the following:
 
 ```

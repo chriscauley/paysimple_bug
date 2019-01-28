@@ -12,7 +12,6 @@ api = PaySimpleAPI(PAYSIMPLE_USERNAME,PAYSIMPLE_API_KEY,sandbox=True)
 
 @app.route('/static/<path:path>')
 def send_js(path):
-    print(path)
     return send_from_directory('static', path)
 
 @app.route('/api/token/',methods=['POST'])
