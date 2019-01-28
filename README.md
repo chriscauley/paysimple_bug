@@ -22,10 +22,13 @@ FLASK_APP=main.py flask run
 
 Open `http://localhost:5000/static/index.html` in a browser. I believe you can enter anything for first, last, and email, but I pre-filled the values in this demo to expediate testing. For the rest of the field use the following (taken from the paysimple documentation)
 
-CC Number: 5454 5454 5454 5454
-Expiration: 12/21
-Security Code: 996
-Zip: 12345
+*CC Number: 5454 5454 5454 5454
+
+*Expiration: 12/21
+
+*Security Code: 996
+
+*Zip: 12345
 
 For me submitting the above returned error below. Note that if I use the expiration 09/21 the error goes away. It is only the exact expiration in the paysimple documentation that give this error.
 
