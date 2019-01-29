@@ -1,14 +1,10 @@
 from flask import Flask, request, send_from_directory
 from api import PaySimpleAPI
 import json
+import settings
 
 app = Flask(__name__, static_url_path='')
-
-CUSTOMER_ID = 0
-PAYSIMPLE_USERNAME=""
-PAYSIMPLE_API_KEY=""
-
-api = PaySimpleAPI(PAYSIMPLE_USERNAME,PAYSIMPLE_API_KEY,sandbox=True)
+api = PaySimpleAPI(settings.PAYSIMPLE_USERNAME,settings.PAYSIMPLE_API_KEY,sandbox=True)
 
 @app.route('/static/<path:path>')
 def send_js(path):
@@ -16,4 +12,4 @@ def send_js(path):
 
 @app.route('/api/token/',methods=['POST'])
 def token():
-    return json.dumps(api.create_customer_token(CUSTOMER_ID))
+    return json.dumps(api.create_customer_token(settings.CUSTOMER_ID))

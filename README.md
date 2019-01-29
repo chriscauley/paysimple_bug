@@ -12,7 +12,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Edit `main.py` with your `CUSTOMER_ID`, `PAYSIMPLE_USERNAME`, and `PAYSIMPLE_API_KEY`. Then run the following to start a server on localhost:5000
+Copy `settings.template.py` to `settings.py` and edit `CUSTOMER_ID`, `PAYSIMPLE_USERNAME`, and `PAYSIMPLE_API_KEY`. Then run the following to start a server on localhost:5000
 
 ```
 FLASK_APP=main.py flask run

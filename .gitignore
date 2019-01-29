@@ -1,1 +1,3 @@
 __pycached__/*
+.venv
+settings.py
