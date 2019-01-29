@@ -24,3 +24,10 @@ p {
  .form-field input {
      display: block;
 }
+
+table tr td {
+  padding: 0.5rem 0;
+}
+table tr:nth-child(odd) {
+  background-color: #eee;
+}
