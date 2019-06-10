@@ -25,9 +25,14 @@ p {
      display: block;
 }
 
-table tr td {
-  padding: 0.5rem 0;
+table {
+  border-collapse: collapse;
 }
+
+table tr td {
+  padding: 0.5rem 1rem;
+}
+
 table tr:nth-child(odd) {
   background-color: #eee;
 }

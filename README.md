@@ -1,5 +1,7 @@
 # PaySimple Bug
 
+This is a minimum sample of code for reproducing my bug. The bug is that we can't add the same account for two different customers. It works for the first customer but the second returns a message `"Current user does not have enough rights to execute this operation."`
+
 ## Setup
 
 The python code is not essential to this demo. If you can't get it working, all that is necessary is to serve the code in `/static/` with an end point `/api/token/` which returns the token for the current user (the python code fakes this by hard coding the user id).
@@ -20,17 +22,9 @@ FLASK_APP=main.py flask run
 
 ## Reproduce the bug
 
-Open `http://localhost:5000/static/index.html` in a browser. I believe you can enter anything for first, last, and email, but I pre-filled the values in this demo to expediate testing. For the rest of the field use the following (taken from the paysimple documentation)
+Open `http://localhost:5000/static/index.html` in a browser. Fill in first, last and email (I think these can be anything). Using the values provided it should work for the first customer. Afterwards go into the settings, change CUSTOMER_ID to another ID, restart the server, and then re-enter the same routing number, account number, bank name, and account type.
 
-*CC Number: 5454 5454 5454 5454
-
-*Expiration: 12/21
-
-*Security Code: 996
-
-*Zip: 12345
-
-For me submitting the above returned error below. Note that if I use the expiration 09/21 the error goes away. It is only the exact expiration in the paysimple documentation that give this error.
+On the second try you should be alerted with the appropriate error message. The full response body was:
 
 ```
 {

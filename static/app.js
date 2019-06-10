@@ -12,9 +12,12 @@ function loadPaysimpleJs(token) {
       }
     }
   });
-  PS.send.setMode('cc-key-enter');
+  PS.send.setMode('ach-key-enter');
   PS.on('accountRetrieved', result => {
-    console.log(result)
+    alert("SUCCESS: \n"+JSON.stringify(result,null,4))
+  })
+  PS.on('httpError', error => {
+    alert('ERROR:'+error.errors[0].message)
   })
 };
 

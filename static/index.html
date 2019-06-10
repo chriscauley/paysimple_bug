@@ -10,18 +10,19 @@
         <p>Merchant Checkout Page</p>
         <div class="form-field">
           <label for="firstName">First Name</label>
-          <input type="text" id="firstName" value="Alice"/>
+          <input type="text" id="firstName" />
         </div>
         <div class="form-field">
           <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" value="Smith"/>
+          <input type="text" id="lastName" />
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="email" id="email" value="alice@example.com"/>
+          <input type="email" id="email" />
         </div>
       </div>
 
+      <!--
       <table>
         <tr>
           <td>Field</td>
@@ -47,6 +48,41 @@
           <td>Any (I used 19104)</td>
         </tr>
       </table>
+      -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Routing Number</th>
+            <td>041000124</td>
+            <td>PNC of Michigan, chosen at random</td>
+          </tr>
+          <tr>
+            <th>Account Number</th>
+            <td>12345678</td>
+            <td>random!</td>
+          </tr>
+          <tr>
+            <th>Bank Name</th>
+            <td>PNC</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Account Type</th>
+            <td>Checking</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+
 
       <div class="psjs">
         <p>PaySimpleJS Payment Form</p>
@@ -61,7 +97,8 @@
       </div>
     </form>
 
-    <script src="https://sandbox-api.paysimple.com/paysimplejs/v1/scripts/client.js"></script>
+    <!--<script src="https://sandbox-api.paysimple.com/paysimplejs/v1/scripts/client.js"></script>-->
+    <script src="https://api.paysimple.com/paysimplejs/v1/scripts/client.js"></script>
     <script src="app.js"></script>
     <link href="styles.css" rel="stylesheet" />
   </body>

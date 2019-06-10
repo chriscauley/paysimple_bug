@@ -4,7 +4,11 @@ import json
 import settings
 
 app = Flask(__name__, static_url_path='')
-api = PaySimpleAPI(settings.PAYSIMPLE_USERNAME,settings.PAYSIMPLE_API_KEY,sandbox=True)
+api = PaySimpleAPI(
+    settings.PAYSIMPLE_USERNAME,
+    settings.PAYSIMPLE_API_KEY,
+    sandbox=getattr(settings, 'SANDBOX', False),
+)
 
 @app.route('/static/<path:path>')
 def send_js(path):
